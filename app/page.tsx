@@ -1,9 +1,15 @@
-import Image from "next/image";
+import { Greeting } from "@/components/homepage/Greeting";
+import { Heading } from "@/components/homepage/Heading";
+import { TypedBios } from "@/components/homepage/TypedBios";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-24">
-      <h1 className="text-2xl">Hello</h1>
-    </main>
+    <div>
+      <main className="flex flex-col items-center justify-between p-24">
+        <Greeting message="Namaste, Solti!" />
+        <Heading />
+        <TypedBios />
+      </main>
+    </div>
   );
 }

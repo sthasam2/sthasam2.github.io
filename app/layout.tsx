@@ -1,6 +1,6 @@
 import "@/css/globals.css";
 import { Outfit } from "next/font/google";
-import { Header } from "@/components/Header";
+import { Nav } from "@/components/Nav";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body className={outfit.className}>
-        <Header />
+        <Nav />
         {children}
       </body>
     </html>

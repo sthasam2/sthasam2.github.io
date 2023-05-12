@@ -1,0 +1,21 @@
+export let siteMetadata = {
+  title: "Sambeg's blog - A cosmos of possibilities",
+  author: "Stha Sambeg",
+  fullName: "Sambeg Shrestha",
+  initials: "SS",
+  headerTitle: "Sambeg's blog - Welcome to my Tavern!",
+  footerTitle: "Sambeg's blog - Welcome to my Tavern!",
+  description:
+    "An humble account of the tales of a common nerd seeking newer heights",
+  language: "en-us",
+  siteUrl: "",
+  siteRepo: "",
+  siteLogo: "",
+  image: "",
+  socialBanner: "",
+  email: "",
+  github: "",
+  linkedin: "",
+  locale: "en-US",
+  analyticsURL: "",
+};
