@@ -8,6 +8,8 @@ export let siteMetadata = {
   description:
     "An humble account of the tales of a common nerd seeking newer heights",
   language: "en-us",
+  designation: "Software Engineer",
+  location: "Nepal",
   siteUrl: "",
   siteRepo: "",
   siteLogo: "",
