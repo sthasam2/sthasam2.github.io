@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { NavButtonProps } from "@/types/components";
+import { NavButtonProps } from "@/types/components.types";
 import Link from "next/link";
 
 export function NavButton({ title, href, active }: NavButtonProps) {

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 
-export function TypedBios() {
+export function TypedBios({ bios }: { bios: string[] }) {
   let el = useRef(null);
 
   useEffect(() => {
@@ -20,10 +20,10 @@ export function TypedBios() {
   return (
     <div>
       <ul id="bios" className="hidden">
-        <li>Random Shit 1</li>
-        <li>Second Random Shit 2</li>
-        <li>Third Random Shit 3</li>
-        <li>Fourth Random Shit 4</li></ul>
+        {bios.map((bio) => (
+          <li key={bios.indexOf(bio)}>{bio}</li>
+        ))}
+      </ul>
       <span ref={el} />
     </div>
   );
