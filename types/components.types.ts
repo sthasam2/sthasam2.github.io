@@ -4,6 +4,11 @@ export interface NavButtonProps {
   active: boolean;
 }
 
+export interface HeadingProps {
+  fullName: string;
+  designation: string;
+  location: string;
+}
 
 export interface NavButtonProps {
   title: string;
@@ -12,8 +17,7 @@ export interface NavButtonProps {
 }
 
 export type TwemojiProps = {
-    emoji: string
-    size?: string
-    className?: string
-  }
-  
+  emoji: string;
+  size?: string;
+  className?: string;
+};

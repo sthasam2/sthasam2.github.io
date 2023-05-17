@@ -1,2 +1,2 @@
-export * from "./components";
-export * from "./data";
+export * from "./components.types";
+export * from "./data.types";
