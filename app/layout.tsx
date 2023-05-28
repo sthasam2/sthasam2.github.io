@@ -7,6 +7,7 @@ import { Nav } from "@/components/Navbar";
 import { CustomThemeProviders } from "@/components/ThemeSwitcher";
 import { darkTheme, lightTheme } from "@/data/constants";
 import { siteMetadata } from "@/data/siteMetadata";
+import Footer from "@/components/Footer";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -28,12 +29,13 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body
-        className={`${outfit.className} grid h-screen grid-cols-1`}
+        className={`${outfit.className} flex h-screen flex-col`}
         suppressHydrationWarning={true}
       >
         <CustomThemeProviders>
           <Nav />
-          <main className="col-start-1 row-start-1 mt-20">{children}</main>
+          <main className="mt-10 grow">{children}</main>
+          <Footer />
         </CustomThemeProviders>
       </body>
     </html>

@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div>
           <div className="hidden space-x-2 md:block">
-            <ProfileCard />
+            <ProfileCard imageSrc="/static/portfolio.webp" />
           </div>
         </div>
       </main>
