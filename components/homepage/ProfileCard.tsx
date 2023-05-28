@@ -4,13 +4,13 @@ import Image from "next/image";
 
 import { siteMetadata } from "@/data/siteMetadata";
 
-export function ProfileCard() {
+export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
   return (
     <>
       <div className="card z-10 mb-8 hidden w-80 scale-100 rounded-lg shadow-lg shadow-cyan-100/50 transition-all duration-200 ease-out hover:z-50 hover:scale-[1.15] dark:shadow-cyan-700/50 lg:block">
         <figure>
           <Image
-            src={"/static/portfolio.jpg"}
+            src={imageSrc ?? "/static/portfolio.jpg"}
             alt="avatar"
             className="h-60 object-cover"
             height={200}

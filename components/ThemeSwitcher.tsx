@@ -14,8 +14,12 @@ export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), []);
-  const isLight = theme === lightTheme || resolvedTheme === lightTheme;
+  useEffect(() => {
+    setMounted(true);
+    setTheme(lightTheme);
+  }, []);
+  const isLight = theme === lightTheme;
+  // || resolvedTheme === lightTheme;
 
   return (
     <button
@@ -28,7 +32,7 @@ export function ThemeSwitcher() {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="h-6 w-6"
+        className="w-6 h-6"
       >
         {mounted && isLight ? (
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />

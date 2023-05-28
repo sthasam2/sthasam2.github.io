@@ -11,6 +11,7 @@ import { siteMetadata } from "@/data/siteMetadata";
 import { headerNavLink } from "@/types";
 
 import { Avatar, PlaceholderAvatar } from "./Avatar";
+import { Container } from "./Container";
 import { SideNavButton } from "./MobileNavButton";
 import { SideNav } from "./MobileNavToggle";
 import { NavButton } from "./NavButton";
@@ -30,67 +31,70 @@ export function Nav() {
   return (
     <nav
       className={clsx(
-        "sticky top-0 z-40 col-start-1 row-start-1 h-fit overflow-x-hidden py-3 backdrop-blur-md",
-        isDark ? "bg-black/30" : "bg-white/30"
+        // "sticky top-0 z-40  shadow-cyan-100/50 backdrop-blur-md dark:shadow-cyan-700/50",
+        "sticky top-0 z-40 col-start-1 row-start-1 h-fit w-full flex-none overflow-x-hidden py-3 backdrop-blur transition-colors duration-500 dark:border-gray-500/[0.06] lg:z-50 lg:border-b lg:border-slate-900/10",
+        isDark ? "bg-black/10" : "bg-white/10"
       )}
     >
-      <div className="flex items-center justify-between max-w-3xl px-3 mx-auto xl:max-w-5xl xl:px-0">
-        <div>
-          <Link href="/">
-            <div className="flex flex-row">
-              <div className="h-10">
-                {siteMetadata.siteLogo != "" ? (
-                  <Avatar src={siteMetadata.siteLogo} />
-                ) : (
-                  <PlaceholderAvatar label={siteMetadata.initials} />
-                )}
+      <Container>
+        <div className="flex items-center justify-between ">
+          <div>
+            <Link href="/">
+              <div className="flex flex-row">
+                <div className="h-10">
+                  {siteMetadata.siteLogo != "" ? (
+                    <Avatar src={siteMetadata.siteLogo} />
+                  ) : (
+                    <PlaceholderAvatar label={siteMetadata.initials} />
+                  )}
+                </div>
               </div>
+            </Link>
+          </div>
+          <div className="text-base leading-5">
+            <div className="hidden space-x-2 sm:block">
+              {headerNavLinks.map((link: headerNavLink, index) => {
+                return (
+                  <NavButton
+                    key={index}
+                    title={link.title}
+                    href={link.href}
+                    active={pathname == link.href}
+                  />
+                );
+              })}
             </div>
-          </Link>
-        </div>
-        <div className="text-base leading-5">
-          <div className="hidden space-x-2 sm:block">
-            {headerNavLinks.map((link: headerNavLink, index) => {
-              return (
-                <NavButton
-                  key={index}
-                  title={link.title}
-                  href={link.href}
-                  active={pathname == link.href}
-                />
-              );
-            })}
+          </div>
+          <div className="flex space-x-2">
+            <ThemeSwitcher />
+            <div className="md:hidden">
+              <SideNav
+                sidebarToggle={sidebarToggle}
+                setSidebarToggle={setSidebarToggle}
+              />
+            </div>
           </div>
         </div>
-        <div className="flex space-x-2">
-          <ThemeSwitcher />
-          <div className="md:hidden">
-            <SideNav
-              sidebarToggle={sidebarToggle}
-              setSidebarToggle={setSidebarToggle}
-            />
-          </div>
-        </div>
-      </div>
 
-      <div
-        className={
-          sidebarToggle
-            ? " grid-col-1 grid justify-center space-y-4 p-4 md:hidden min-h-[80%]"
-            : "hidden "
-        }
-      >
-        {headerNavLinks.map((link: headerNavLink) => {
-          return (
-            <SideNavButton
-              key={link.title}
-              title={link.title}
-              href={link.href}
-              active={pathname == link.href}
-            />
-          );
-        })}
-      </div>
+        <div
+          className={
+            sidebarToggle
+              ? " grid-col-1 grid min-h-[80%] justify-center space-y-4 p-4 md:hidden"
+              : "hidden "
+          }
+        >
+          {headerNavLinks.map((link: headerNavLink) => {
+            return (
+              <SideNavButton
+                key={link.title}
+                title={link.title}
+                href={link.href}
+                active={pathname == link.href}
+              />
+            );
+          })}
+        </div>
+      </Container>
     </nav>
   );
 }
