@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  devIndicators: {
+    buildActivityPosition: "bottom-right",
+  },
+  reactStrictMode: true,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

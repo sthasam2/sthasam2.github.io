@@ -1,12 +1,14 @@
 import clsx from "clsx";
-import { NavButtonProps } from "@/types/components";
 import Link from "next/link";
 
-export function NavButton({ title, href, active }: NavButtonProps) {
-  let className = clsx("btn btn-sm btn-ghost", active ? "btn-active" : "");
+import { NavButtonProps } from "@/types/components";
 
+export function NavButton({ title, href, active }: NavButtonProps) {
   return (
-    <Link href={href} className={className}>
+    <Link
+      href={href}
+      className={clsx("btn-ghost btn-sm btn", active ? "btn-active" : "")}
+    >
       {title}
     </Link>
   );

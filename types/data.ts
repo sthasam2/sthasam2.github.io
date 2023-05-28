@@ -1,6 +1,11 @@
 export interface headerNavLink {
-  id: number;
   href: string;
-  title: string;
   meta?: string;
+  title: string;
+}
+
+export interface pagesInfoItem {
+  meta?: string;
+  subtitle: string;
+  title: string;
 }

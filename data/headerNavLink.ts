@@ -1,9 +1,9 @@
-import { headerNavLink } from "@/types/links";
+import { headerNavLink } from "@/types";
 
 export let headerNavLinks: headerNavLink[] = [
-  { id: 1, href: "/blog", title: "Blog" },
-  { id: 2, href: "/snippets", title: "Snippets" },
-  { id: 3, href: "/projects", title: "Projects" },
-  { id: 4, href: "/about", title: "About" },
-  { id: 5, href: "/resume", title: "Resume" },
+  { href: "/blog", title: "Blog" },
+  { href: "/gists", title: "Gists" },
+  { href: "/projects", title: "Projects" },
+  { href: "/about", title: "About" },
+  { href: "/resume", title: "Resume" },
 ];
