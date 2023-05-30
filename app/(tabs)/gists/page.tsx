@@ -1,8 +1,8 @@
 import { PageHeader } from "@/components/PageHeader";
+import { pagesMetadata } from "@/data/pagesMetadata";
 
 export const metadata = {
-  title: "Gists",
-  description: "Some snippets and gists I've accumulated over the years",
+  ...pagesMetadata.gist,
 };
 
 const Gists = () => {

@@ -7,18 +7,18 @@ import { siteMetadata } from "@/data/siteMetadata";
 export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
   return (
     <>
-      <div className="card z-10 mb-8 hidden w-80 scale-100 rounded-lg shadow-lg shadow-cyan-100/50 transition-all duration-200 ease-out hover:z-50 hover:scale-[1.15] dark:shadow-cyan-700/50 lg:block">
+      <div className="card z-50 mb-8 hidden w-80 scale-100 rounded-lg shadow-lg shadow-cyan-100/50 transition-all duration-200 ease-out hover:z-50 hover:scale-[1.15] dark:shadow-cyan-700/50 lg:block">
         <figure>
           <Image
             src={imageSrc ?? "/static/portfolio.jpg"}
             alt="avatar"
-            className="h-60 object-cover"
+            className="object-cover h-60"
             height={200}
             width={384}
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-3xl">{siteMetadata.fullName}</h2>
+          <h2 className="text-3xl card-title">{siteMetadata.fullName}</h2>
 
           <div className="mb-2">
             {siteMetadata.profileTags.map((value) => value).join(" | ")}
@@ -27,7 +27,7 @@ export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
           <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -45,7 +45,7 @@ export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
           <div className="flex items-center ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -65,14 +65,14 @@ export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
             </svg>
             <p className="px-2">
               {siteMetadata.location}
-              <span className="absolute ml-1 inline-flex pt-px"></span>
+              <span className="absolute inline-flex pt-px ml-1"></span>
             </p>
           </div>
 
           <div className="flex items-center ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -91,7 +91,7 @@ export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
           <div className="flex items-center ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -125,7 +125,7 @@ export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
           </div>
         </div>
 
-        <div className="card-body p-0">
+        <div className="p-0 card-body">
           <span className=" h-1.5 rounded-b-lg bg-gradient-to-r from-green-300 via-blue-500 to-purple-600" />
         </div>
       </div>

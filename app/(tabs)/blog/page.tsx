@@ -1,8 +1,8 @@
 import { PageHeader } from "@/components/PageHeader";
+import { pagesMetadata } from "@/data/pagesMetadata";
 
 export const metadata = {
-  title: "Blogs",
-  description: "Take a look at what I've managed to write about.",
+  ...pagesMetadata.blog,
 };
 
 export default function Blog() {

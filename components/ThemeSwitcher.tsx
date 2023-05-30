@@ -16,10 +16,8 @@ export function ThemeSwitcher() {
   // When mounted on client, now we can show the UI
   useEffect(() => {
     setMounted(true);
-    setTheme(lightTheme);
   }, []);
-  const isLight = theme === lightTheme;
-  // || resolvedTheme === lightTheme;
+  const isLight = theme === lightTheme || resolvedTheme === lightTheme;
 
   return (
     <button

@@ -1,4 +1,4 @@
-import "@/css/globals.css";
+import "@/styles/globals.css";
 
 import { Outfit } from "next/font/google";
 import Head from "next/head";
@@ -29,12 +29,14 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body
-        className={`${outfit.className} flex h-screen flex-col`}
+        className={`${outfit.className} grid h-screen grid-cols-1`}
         suppressHydrationWarning={true}
       >
         <CustomThemeProviders>
           <Nav />
-          <main className="mt-10 grow">{children}</main>
+          <main className="col-start-1 row-start-1 mt-24 transition-colors duration-500">
+            {children}
+          </main>
           <Footer />
         </CustomThemeProviders>
       </body>

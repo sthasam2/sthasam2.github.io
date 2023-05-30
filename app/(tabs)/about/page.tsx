@@ -1,8 +1,8 @@
 import { PageHeader } from "@/components/PageHeader";
+import { pagesMetadata } from "@/data/pagesMetadata";
 
 export const metadata = {
-  title: "About",
-  description: "A little bit about me",
+  ...pagesMetadata.about,
 };
 
 const About = () => {
