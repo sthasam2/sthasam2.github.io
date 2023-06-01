@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 import { siteMetadata } from "@/data/siteMetadata";
@@ -17,6 +15,7 @@ export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
             width={384}
           />
         </figure>
+
         <div className="card-body">
           <h2 className="text-3xl card-title">{siteMetadata.fullName}</h2>
 
@@ -63,10 +62,7 @@ export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            <p className="px-2">
-              {siteMetadata.location}
-              <span className="absolute inline-flex pt-px ml-1"></span>
-            </p>
+            <p className="px-2">{siteMetadata.location}</p>
           </div>
 
           <div className="flex items-center ">

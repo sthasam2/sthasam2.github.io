@@ -1,7 +1,6 @@
-import clsx from 'clsx';
-import Link from 'next/link';
+import Link from "next/link";
 
-import { NavButtonProps } from '@/types/components';
+import { NavButtonProps } from "@/types/components";
 
 export function SideNavButton({
   title,
@@ -12,10 +11,10 @@ export function SideNavButton({
   return (
     <Link
       href={href}
-      className={clsx(
-        'btn btn-wide btn-lg btn-ghost',
-        active ? 'btn-active' : ''
-      )}
+      className={`
+        btn btn-wide btn-lg btn-ghost
+        ${active ? " btn-active" : ""}
+      `}
     >
       {title}
     </Link>

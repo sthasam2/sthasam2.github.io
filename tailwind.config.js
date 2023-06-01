@@ -5,11 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkTheme: ["class", "data-theme"],
   theme: {
     extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["light", "dark", "corporate", "business", "retro"],
+    themes: ["corporate", "business"],
   },
 };

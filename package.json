@@ -6,11 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm /_next"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
-    "clsx": "^1.2.1",
     "contentlayer": "^0.3.3",
     "daisyui": "^2.51.6",
     "next": "13.4.1",

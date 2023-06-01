@@ -1,12 +1,11 @@
 "use client";
 
-import clsx from "clsx";
-import { useTheme } from "next-themes";
+import { useThemeExtended } from "@/hooks/themeHooks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { darkTheme, headerNavLinks, lightTheme } from "@/data";
+import { darkTheme, headerNavLinks } from "@/data";
 import { siteMetadata } from "@/data/siteMetadata";
 import { headerNavLink } from "@/types";
 
@@ -20,29 +19,29 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 export function Nav() {
   const pathname = usePathname();
   const [sidebarToggle, setSidebarToggle] = useState(false);
-  const { theme, resolvedTheme, setTheme } = useTheme();
-
-  const isDark = theme === darkTheme || resolvedTheme === darkTheme;
+  const { isLight } = useThemeExtended();
 
   useEffect(() => {
     setSidebarToggle(false);
-    setTheme(lightTheme);
-  }, [pathname, setTheme]);
+  }, [pathname]);
 
   return (
     <nav
-      className={clsx(
-        // "sticky top-0 z-40  shadow-cyan-100/50 backdrop-blur-md dark:shadow-cyan-700/50",
-        "sticky top-0 z-40 col-start-1 row-start-1 h-fit w-full overflow-x-hidden py-3 backdrop-blur  dark:border-gray-500/[0.06] lg:z-50 lg:border-b lg:border-slate-900/10",
-        isDark ? "bg-black/10" : "bg-white/10"
-      )}
+      className={`
+        sticky top-0 z-40 col-start-1 row-start-1 h-fit w-full overflow-x-hidden py-3 backdrop-blur border-b 
+        ${
+          isLight
+            ? "bg-white/10 border-slate-900/10"
+            : "bg-black/10 border-gray-500/20"
+        }
+      `}
     >
       <Container>
         <div className="flex items-center justify-between ">
           <div>
             <Link href="/">
               <div className="flex flex-row">
-                <div className="h-10">
+                <div className="h-10" title="Go to Homepage">
                   {siteMetadata.siteLogo != "" ? (
                     <Avatar src={siteMetadata.siteLogo} />
                   ) : (
@@ -60,7 +59,7 @@ export function Nav() {
                     key={index}
                     title={link.title}
                     href={link.href}
-                    active={pathname == link.href}
+                    active={pathname.includes(link.slug)}
                   />
                 );
               })}

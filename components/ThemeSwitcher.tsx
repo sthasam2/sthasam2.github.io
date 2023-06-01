@@ -1,23 +1,30 @@
 "use client";
 
-import { ThemeProvider, useTheme } from "next-themes";
-import { ReactNode, useEffect, useState } from "react";
+import { ThemeProvider } from "next-themes";
+import { PropsWithChildren, useEffect, useState } from "react";
 
 import { darkTheme, lightTheme } from "@/data";
+import { useThemeExtended } from "@/hooks/themeHooks";
 
-export function CustomThemeProviders({ children }: { children: ReactNode }) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+export function CustomThemeProviders({
+  children,
+  ...props
+}: PropsWithChildren) {
+  return (
+    <ThemeProvider attribute="data-theme" {...props}>
+      {children}
+    </ThemeProvider>
+  );
 }
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { isLight, setTheme } = useThemeExtended();
 
   // When mounted on client, now we can show the UI
   useEffect(() => {
     setMounted(true);
   }, []);
-  const isLight = theme === lightTheme || resolvedTheme === lightTheme;
 
   return (
     <button
@@ -25,6 +32,7 @@ export function ThemeSwitcher() {
       type="button"
       className="btn-ghost btn-square btn"
       onClick={() => setTheme(isLight ? darkTheme : lightTheme)}
+      title={isLight ? "Switch to dark mode" : "Switch to light mode"}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
