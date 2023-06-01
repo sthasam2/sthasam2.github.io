@@ -7,7 +7,7 @@ import { siteMetadata } from "@/data/siteMetadata";
 export function ProfileCard({ imageSrc }: { imageSrc?: string }) {
   return (
     <>
-      <div className="card z-50 mb-8 hidden w-80 scale-100 rounded-lg shadow-lg shadow-cyan-100/50 transition-all duration-200 ease-out hover:z-50 hover:scale-[1.15] dark:shadow-cyan-700/50 lg:block">
+      <div className="card z-10 mb-8 hidden w-80 scale-100 rounded-lg shadow-lg shadow-cyan-100/50 transition-all duration-200 ease-out hover:z-50 hover:scale-[1.15] dark:shadow-cyan-700/50 lg:block">
         <figure>
           <Image
             src={imageSrc ?? "/static/portfolio.jpg"}
