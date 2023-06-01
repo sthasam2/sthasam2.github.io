@@ -26,11 +26,11 @@ export const Blog = defineDocumentType(() => ({
   computedFields: {
     readingTime: {
       type: "json",
-      resolve: (doc) => readingTime(doc.body.rawBody),
+      resolve: (doc) => readingTime(doc.body.raw),
     },
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.sourceFileName.replace("/.mdx/", ""),
+      resolve: (doc) => doc._raw.sourceFileName.replace(".mdx", ""),
     },
   },
 }));
