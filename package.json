@@ -1,7 +1,11 @@
 {
-  "name": "Stha Sambeg Home in the Internet",
+  "name": "Stha Sambeg - Portfolio",
   "type": "module",
   "version": "0.0.1",
+  "author": "Stha Sambeg <sthasam2@gmail.com>",
+  "license": "MIT",
+  "description": "Stha Sambeg Home in the Internet",
+  "homepage": "https://sthasambeg.com.np",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
