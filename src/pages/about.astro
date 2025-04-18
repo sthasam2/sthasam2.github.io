@@ -1,5 +1,7 @@
 ---
 const pageTitle = "Stha Sambeg | About Me";
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const skillColor = "navy";
 ---
 
 <html lang="en">
@@ -9,7 +11,18 @@ const pageTitle = "Stha Sambeg | About Me";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-  </head>
+    <style define:vars={{ skillColor }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+      }
+    </style></head
+  >
+
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
@@ -28,5 +41,10 @@ const pageTitle = "Stha Sambeg | About Me";
       Right now, this is just the beginning — but stick around. There's a lot more coming, and you
       might just catch a glimpse of something awesome in the making.
     </p>
+
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
   </body>
 </html>
