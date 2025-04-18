@@ -1,7 +1,7 @@
 ---
 import type { MarkdownLayoutProps } from "astro";
-import BaseLayout from "./BaseLayout.astro";
 import type { MarkdownPostFrontmatter } from "../types/markdown-post";
+import BaseLayout from "./BaseLayout.astro";
 
 type Props = MarkdownLayoutProps<MarkdownPostFrontmatter>;
 const { frontmatter } = Astro.props;
