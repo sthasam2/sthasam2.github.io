@@ -1,0 +1,6 @@
+{
+  "package.json": ["xargs -I {} exho {}; tsc --noEmit --pretty ./"],
+  "*.{?(m|c)js?(x),ts?(x),json,yaml,yml}": [
+    "biome check --fix --no-errors-on-unmatched"
+  ]
+}
