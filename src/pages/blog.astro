@@ -2,18 +2,18 @@
 import Link from "../components/ui/Link.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import type { MarkdownLayoutProps } from "astro";
-import type { MarkdownPostFrontmatter } from "../types/markdown-post";
+import { getMarkdownPosts } from "../utils/posts";
 
-const pageTitle = "My Astro Learning Blog";
-const allPosts: MarkdownLayoutProps<MarkdownPostFrontmatter>[] = Object.values(
-  import.meta.glob("./posts/*.md", { eager: true })
-);
+const allPosts = getMarkdownPosts();
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle="My Blogs">
   <p>This is where I will post about my journey learning Astro.</p>
   <ul>
-    {allPosts.map((post: any) => <Link title={post.frontmatter.title} url={post.url} />)}
+    {
+      allPosts.map((post: any) => (
+        <Link title={post.frontmatter.title} url={post.url} />
+      ))
+    }
   </ul>
 </BaseLayout>
