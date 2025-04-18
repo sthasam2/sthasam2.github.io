@@ -1,14 +1,21 @@
 {
-  "name": "",
+  "name": "Stha Sambeg Home in the Internet",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky",
+    "pre-commit": "echo @Pre-commit hook; lint-staged --concurrent false"
   },
   "dependencies": {
     "astro": "^5.7.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1"
   }
 }
