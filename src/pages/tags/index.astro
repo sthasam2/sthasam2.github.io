@@ -1,6 +1,7 @@
 ---
 import Link from "../../components/ui/Link.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { convertToKebabCase } from "../../utils/transformers/string";
 
 import type { MarkdownLayoutProps } from "astro";
 import type { MarkdownPostFrontmatter } from "../../types/markdown-post";
@@ -22,6 +23,10 @@ for (const post of allPosts) {
 <BaseLayout pageTitle="All Tags">
   <p>All available Tags are</p>
   <ul>
-    {Array.from(allTags).map((tag) => <Link title={tag} url={`/tags/${tag}`} />)}
+    {
+      Array.from(allTags).map((tag) => (
+        <Link title={tag} url={`/tags/${convertToKebabCase(tag)}`} />
+      ))
+    }
   </ul>
 </BaseLayout>

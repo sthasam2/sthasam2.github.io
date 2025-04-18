@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import type { MarkdownLayoutProps } from "astro";
 import type { MarkdownPostFrontmatter } from "../../types/markdown-post";
+import { convertToKebabCase } from "../../utils/transformers/string";
 
 export async function getStaticPaths() {
   const allPosts: MarkdownLayoutProps<MarkdownPostFrontmatter>[] = Object.values(
@@ -20,18 +21,23 @@ export async function getStaticPaths() {
   }
 
   return Array.from(allTags).map((tag) => ({
-    params: { tag },
-    props: { posts: allPosts.filter((post) => post.frontmatter.tags.includes(tag)) },
+    params: { tag: convertToKebabCase(tag) },
+    props: { posts: allPosts.filter((post) => post.frontmatter.tags.includes(tag)), rawTag: tag },
   }));
 }
 
+type Props = {
+  posts: MarkdownLayoutProps<MarkdownPostFrontmatter>[];
+  rawTag: string;
+};
+
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { posts, rawTag } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
+<BaseLayout pageTitle={rawTag}>
+  <p>Posts tagged with <a href={`/tags/${tag}`}>{rawTag}</a></p>
   <ul>
-    {posts.map((post: any) => <Link title={post.frontmatter.title} url={post.url} />)}
+    {posts.map((post) => <Link title={post.frontmatter.title} url={post.url} />)}
   </ul>
 </BaseLayout>
