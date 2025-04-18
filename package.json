@@ -12,7 +12,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky",
-    "pre-commit": "echo @Pre-commit hook; lint-staged --concurrent false"
+    "pre-commit": "echo @Pre-commit hook; lint-staged --concurrent false",
+    "format": "biome format",
+    "lint": "biome lint",
+    "check": "biome check"
   },
   "dependencies": {
     "astro": "^5.7.4"
